@@ -14,8 +14,23 @@
       <h5 class="mb-0">Add New Category</h5>
       <small class="text-muted float-end">input information</small>
     </div>
+    <!-- /resources/views/post/create.blade.php -->
+ 
+ 
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+ 
+<!-- Create Post Form -->
     <div class="card-body">
-      <form action="" method="POST">
+      <form action="{{route('storecategory')}}" method="POST">
+        @csrf
         <div class="row mb-3">
           <label class="col-sm-2 col-form-label" for="basic-default-name">Category Name</label>
           <div class="col-sm-10">
